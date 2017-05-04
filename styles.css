@@ -1,0 +1,50 @@
+@charset "UTF-8";
+* {
+	box-sizing:border-box;
+}
+body {
+	font-family: helvetica, sans-serif;
+	color:#555;
+}
+section.week {
+	width:100%;
+	margin:0 0 20px;
+	box-shadow:0 2px 1px rgba(0,0,0,0.3);
+	border-radius:3px;
+	padding:0 30px 30px;
+} 
+section.workout {
+	margin:0 -30px;
+	padding:0 30px;
+}
+h2 {
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	background:#5db7ef;
+	color:#fff;
+	padding:5px 15px;
+	margin:0 -30px;
+}
+h3 {
+	margin:0;
+	padding:15px 0 0;
+}
+
+.reps:after {
+	content:'repetitions'
+}
+.jog:after {
+	content:'jogging'
+}
+.walk:after {
+	content:'walking'
+}
+.time.sec:after {
+	content:'seconds'
+}
+.time.min:after {
+	content:'minutes'
+}
+.time.none:before {
+	content:'no'
+}
