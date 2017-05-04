@@ -5,7 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Workout plan</title>
-<link href="https://pemco.com/_elements/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link href="styles.css" type="text/css" rel="stylesheet">
 </head>
 
@@ -14,7 +24,7 @@
   <div class="row">
     <div class="col-sm-12">
       <section id="wk1" class="week">
-        <h2>Week 1</h2>
+		<h2>Week 1<span class="status open"></span></h2>
         <section class="workout wo1">
           <h3>Workout 1</h3>
           <p><span class="reps">8</span></p>
@@ -43,7 +53,7 @@
     </div>
     <div class="col-sm-12">
       <section id="wk2" class="week">
-        <h2>Week 2</h2>
+<h2>Week 2<span class="status closed"></h2>
         <section class="workout wo1">
           <h3>Workout 1</h3>
           <p><span class="reps">6</span></p>
@@ -304,7 +314,29 @@
     </div>
   </div>
 </div>
-<script src="https://pemco.com/_elements/jquery/jquery-1.11.0.min.js"></script> 
-<script src="https://pemco.com/_elements/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!--	
+	<div class="timer">
+	
+<h3 style='margin-top:20px;'>Example 1 - Stopwatch (counts ups)</h3>
+<span id="stopwatch">00:00:00</span>
+<p>
+	<input type='button' value='Play/Pause' onclick='Example1.Timer.toggle();' />
+	<input type='button' value='Stop/Reset' onclick='Example1.resetStopwatch();' />
+</p>
+<br/>
+<br/>
+
+<h3>Example 2 - Countdown Timer</h3>
+<span id="countdown">05:00:00</span>
+<form id="example2form">
+	<input type='button' value='Play/Pause' onclick='Example2.Timer.toggle();' />
+	<input type='button' value='Stop/Reset' onclick='Example2.resetCountdown();' />
+	<input type='text' name='startTime' value='300' style='width:30px;' />
+</form>
+	</div>
+<script type="text/javascript" src="timer.js"></script>
+<script type="text/javascript" src="jquery.timer.js"></script>
+-->
+<script src="workout.js"></script>
 </body>
 </html>
