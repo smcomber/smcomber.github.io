@@ -48,24 +48,32 @@ h3 {
 .time.none:before {
 	content:'no'
 }
-.status {
+.wkStatus, .woStatus {
     position: relative;
-    top: 1px;
+	top: 2px;
     display: inline-block;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: 400;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-float: right;
+	float: left;
 	font-size: 0.9em;
+	margin-right:5px;
 }
-.status:after {
+.wkStatus:after, .woStatus:after {
 	content: "\e157";
 }
-.closed .status:after {
+.wkClosed .wkStatus:after, .woClosed .woStatus:after {
 	content: "\e067";
 }
-.week.closed {
+.week.wkClosed {
 opacity:0.5;
+}
+.woClosed {
+opacity:0.5;
+
+}
+.week, .workout {
+transition:opacity 500ms;
 }
