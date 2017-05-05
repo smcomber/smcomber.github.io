@@ -3,31 +3,35 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: helvetica, sans-serif;
+	font-family: 'Poppins', sans-serif;
 	color: #555;
+}
+.container {
+	padding: 0;
 }
 section.week {
 	width: 100%;
 	margin: 0 0 15px;
-padding: 0 30px 15px;
-border-bottom:2px solid rgba(43,85,111,1);
+	padding: 0 30px 15px;
+	border-bottom: 2px solid rgba(43,85,111,1);
 }
 section.workout {
 	margin: 0 -30px;
 	padding: 0 30px;
 }
 h2 {
-background: rgba(43,85,111,1);
+	background: rgba(43,85,111,1);
 	color: #fff;
 	padding: 5px 15px;
 	margin: 0 -30px;
 }
 h3 {
-	margin: 0;
-	padding: 15px 0 0;
+	margin: 10px 0;
+	padding: 15px 0 5px;
+	border-bottom: 1px dotted;
 }
-nav {
-	margin: 0 0 10px;
+header, nav {
+	margin: 0 15px 10px
 }
 nav ul {
 	list-style-type: none;
@@ -50,7 +54,7 @@ nav li a {
 	font-size: 1.4em;
 	font-weight: bold;
 	margin: 5px;
-transition:background 300ms;
+	transition: background 300ms;
 }
 nav li a:hover, nav li a:active, nav li a:focus, nav li a:visited {
 	background: rgba(43,85,111,0.5);
@@ -58,12 +62,21 @@ nav li a:hover, nav li a:active, nav li a:focus, nav li a:visited {
 	color: #fff;
 }
 a.backTop {
-    display: block;
-    margin: 0 auto 15px;
-    width: 50%;
+	display: block;
+	margin: 0 auto 15px;
+	width: 50%;
+}
+.reps, .jog, .walk {
+	font-size: 1.6em;
+	font-weight:bold;
+}
+.reps:after, .jog:after, .walk:after, .time:after {
+margin-left: 5px;
+font-size: 0.8em;
+font-weight:normal;
 }
 .reps:after {
-	content: 'repetitions'
+	content: 'repetitions:';
 }
 .jog:after {
 	content: 'jogging'
