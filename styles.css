@@ -1,65 +1,97 @@
 @charset "UTF-8";
 * {
-	box-sizing:border-box;
+	box-sizing: border-box;
 }
 body {
 	font-family: helvetica, sans-serif;
-	color:#555;
+	color: #555;
 }
 section.week {
-	width:100%;
-	margin:0 0 20px;
-	box-shadow:0 2px 1px rgba(0,0,0,0.3);
-	border-radius:3px;
-	padding:0 30px 30px;
-} 
+	width: 100%;
+	margin: 0 0 15px;
+padding: 0 30px 15px;
+border-bottom:2px solid rgba(43,85,111,1);
+}
 section.workout {
-	margin:0 -30px;
-	padding:0 30px;
+	margin: 0 -30px;
+	padding: 0 30px;
 }
 h2 {
-	border-top-left-radius:3px;
-	border-top-right-radius:3px;
-	background:#5db7ef;
-	color:#fff;
-	padding:5px 15px;
-	margin:0 -30px;
+background: rgba(43,85,111,1);
+	color: #fff;
+	padding: 5px 15px;
+	margin: 0 -30px;
 }
 h3 {
-	margin:0;
-	padding:15px 0 0;
+	margin: 0;
+	padding: 15px 0 0;
 }
-
+nav {
+	margin: 0 0 10px;
+}
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+nav li {
+	display: inline;
+}
+nav li a {
+	background: rgba(43,85,111,1);
+	color: #fff;
+	padding-top: 8px;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: block;
+	float: left;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 5px;
+transition:background 300ms;
+}
+nav li a:hover, nav li a:active, nav li a:focus, nav li a:visited {
+	background: rgba(43,85,111,0.5);
+	text-decoration: none;
+	color: #fff;
+}
+a.backTop {
+    display: block;
+    margin: 0 auto 15px;
+    width: 50%;
+}
 .reps:after {
-	content:'repetitions'
+	content: 'repetitions'
 }
 .jog:after {
-	content:'jogging'
+	content: 'jogging'
 }
 .walk:after {
-	content:'walking'
+	content: 'walking'
 }
 .time.sec:after {
-	content:'seconds'
+	content: 'seconds'
 }
 .time.min:after {
-	content:'minutes'
+	content: 'minutes'
 }
 .time.none:before {
-	content:'no'
+	content: 'no'
 }
 .wkStatus, .woStatus {
-    position: relative;
+	position: relative;
 	top: 2px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
 	float: left;
 	font-size: 0.9em;
-	margin-right:5px;
+	margin-right: 5px;
 }
 .wkStatus:after, .woStatus:after {
 	content: "\e157";
@@ -68,12 +100,11 @@ h3 {
 	content: "\e067";
 }
 .week.wkClosed {
-opacity:0.5;
+	opacity: 0.5;
 }
 .woClosed {
-opacity:0.5;
-
+	opacity: 0.5;
 }
 .week, .workout {
-transition:opacity 500ms;
+	transition: opacity 500ms;
 }
