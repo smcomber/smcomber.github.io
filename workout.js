@@ -15,9 +15,9 @@ $('h2').click(function () {
 		localStorage.setItem('wkComplete', wkCompleteString);
 		$(thisClick).parent().removeClass('wkClosed');
 	} else {
-	wkComplete.push(thisWeek);
-	wkCompleteString = JSON.stringify(wkComplete);
-	localStorage.setItem('wkComplete', wkCompleteString);
+		wkComplete.push(thisWeek);
+		wkCompleteString = JSON.stringify(wkComplete);
+		localStorage.setItem('wkComplete', wkCompleteString);
 	$(thisClick).parent().addClass('wkClosed');
 	}
 	//console.log(complete);
@@ -37,12 +37,14 @@ $('.woComplete').click(function () {
 		woCompleteString = JSON.stringify(woComplete);
 		localStorage.setItem('woComplete', woCompleteString);
 		$(thisClick).parent().removeClass('woClosed');
+		$(thisClick).html('Mark workout complete');
 	} else {
 		woComplete.push(thisWorkout);
 		woCompleteString = JSON.stringify(woComplete);
 		localStorage.setItem('woComplete', woCompleteString);
 		$(thisClick).parent().addClass('woClosed');
-checkWeek(thisWorkout);
+		$(thisClick).html('Reset to incomplete');
+		checkWeek(thisWorkout);
 	}
 
 	//console.log(woComplete);
@@ -66,8 +68,8 @@ function checkComplete() {
 			wkComplete.push(storedComplete[i]);
 		}
 	}
-console.log(wkComplete);
-woCheckComplete();
+	console.log(wkComplete);
+	woCheckComplete();
 }
 
 // get stored completion record and set styles - workout
@@ -82,7 +84,8 @@ function woCheckComplete() {
 			for (v = 0; v < week.length; v++) {
 				var thisWeekId = $(week[v]).attr('id');
 				if (thisWeekId == weekId) {
-					$(week[v]).addClass('woClosed');
+				$(week[v]).addClass('woClosed');
+		$(week[v]).find('.woComplete').html('Reset to incomplete');
 				}
 			}
 			woComplete.push(storedComplete[i]);
@@ -92,31 +95,26 @@ function woCheckComplete() {
 	//woCheckComplete();
 }
 
-function checkWeek(workoutID){
-//console.log(workoutID);
+// set week complete when all three workouts are set to complete
+function checkWeek(workoutID) {
+	var parentWeek = $('#' + workoutID).parent();
+	var parentWeekID = $(parentWeek).attr('id');
+	var weekNo = parentWeekID.split('wk')[1];
+	var woCheck = $(parentWeek).find('.workout');
+	var count = 0;
 
-var parentWeek = $('#' + workoutID).parent();
-var parentWeekID = $(parentWeek).attr('id');
-var woCheck = $(parentWeek).find('.workout');
-var count = 0;
-	
-//console.log(parentWeekID);
-	for (i=0; i < woCheck.length; i++){
+	for (i = 0; i < woCheck.length; i++) {
 		if ($(woCheck[i]).hasClass('woClosed')) {
 			count++;
 			if (count == 3) {
-		//console.log(workoutID + ' is closed - ' + count)
 				wkComplete.push(parentWeekID);
 				wkCompleteString = JSON.stringify(wkComplete);
 				localStorage.setItem('wkComplete', wkCompleteString);
 				$(parentWeek).addClass('wkClosed');
-			alert('Week complete! Nice work!')
+	alert('Week ' + weekNo + ' complete! Nice work!');
 			}
-
 		}
-	
 	}
-
 }
 
 

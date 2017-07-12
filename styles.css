@@ -25,6 +25,16 @@ h2 {
 	padding: 5px 15px;
 	margin: 0 -30px;
 }
+h2 .btn {
+    float: right;
+	margin-top: 6px;
+	opacity:0;
+transition:opacity 300ms 300ms;
+}
+.wkClosed h2 .btn {
+	opacity:1;
+
+}
 h3 {
 	margin: 10px 0;
 	padding: 15px 0 5px;
@@ -79,7 +89,8 @@ font-weight:normal;
 	content: 'repetitions:';
 }
 .jog:after {
-	content: 'jogging'
+	content: 'jogging';
+background-image: url(emoji/walking.png);
 }
 .walk:after {
 	content: 'walking'
