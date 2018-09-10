@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workout plan</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link href="styles.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="timer">00:00:00</div>
+		<button class="startTimer">Start</button>
+		<button class="pauseTimer">Pause</button>
+		<button id="resetTimer">Reset</button>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+
+	function timerWrap(){
+
+
+		var setMin = 1;
+
+		var setSec = 00
+		var setSecStart = setSec;
+
+		var setMinStart = setMin;
+		if (setMinStart < 10 && setMinStart >= 0) {setMinStart = '0' + setMinStart};
+		/*
+		if(setSecStart >= 60){
+			var setSecStartA = setSecStart / 60;
+			var setSecStartB = setSecStart % 60
+			console.log(setSecStartA);
+			console.log(setSecStartB);
+		}
+		if (setSecStart < 10 && setSecStart >= 0) {setSecStart = '0' + setSecStart};
+*/
+		var startTime = (setMinStart + ' : ' + '00' + ' :  ' + '00')
+		$('.timer').html(startTime)
+
+		var now;
+		var setTime;
+
+		function timerStart(currentStart){
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			  // Get todays date and time
+
+			  now = new Date().getTime();
+
+			setTime = (currentStart.valueOf() + (setMin*60000) + (setSec*1000));
+
+
+			  // Find the distance between now an the count down date
+			  var distance = setTime - now;
+
+			  // Time calculations
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				if (minutes < 10 && minutes >= 0) {minutes = '0' + minutes};
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				if (seconds < 10 && seconds >= 0) {seconds = '0' + seconds};
+			var mseconds = Math.floor((distance % (10 * 100)) / 10);
+				if (mseconds < 10 && mseconds >= 0) {mseconds = '0' + mseconds};
+
+			  // Display the result in the element with id="demo"
+			  $('.timer').html(minutes + ' : ' + seconds + ' : ' + mseconds);
+
+			  // If the count down is finished, write some text
+			  if (distance < 0) {
+				clearInterval(x);
+				$('.timer').html('Done!')
+			  }
+			}, 10);
+
+			$('.pauseTimer').click(function(){
+				console.log('pause');
+				console.log('setTime ' + setTime);
+				console.log('now ' + now);
+				console.log('diff ' + setTime - now);
+				console.log($('.timer').html())
+				$(this).addClass('disabled');
+				$('.startTimer').removeClass('disabled');
+					clearInterval(x)
+			});
+
+			$('.restartTimer').click(function(){
+				console.log('restart')
+			});
+
+			$('#resetTimer').click(function(){
+				console.log('reset')
+			});
+
+		}
+		$('.startTimer').click(function(){
+			console.log('start');
+			var nowStart = new Date().getTime();
+			timerStart(nowStart)
+			$(this).addClass('disabled');
+			$('.pauseTimer').removeClass('disabled');
+		});
+
+	}
+	window.onload = timerWrap;
+</script>
